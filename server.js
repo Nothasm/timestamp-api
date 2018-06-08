@@ -4,7 +4,9 @@ var { dateCheck } = require('./date');
 var cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+app.use(cors());
+app.use('/public', express.static('public'));
+
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
